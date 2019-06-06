@@ -35,7 +35,7 @@ local user_symbol="👩‍💻"
 if [[ $(print -P "%#") =~ "#" ]]; then
     user_symbol = "#"
 fi
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol %{%b%f%k%F{yellow}%}%{%b%f%k%F{yellow}%} %{%f%}"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
