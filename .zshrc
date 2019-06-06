@@ -20,7 +20,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 POWERLEVEL9K_TIME_FORMAT="%D{\u23f0 %H:%M:%S}"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=’red’
 # POWERLEVEL9K_VCS_CLEAN_BACKGROUND='green'
-# POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='blue'
+# POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='red'
 # POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='white'
 # POWERLEVEL9K_VCS_STAGED_BACKGROUND='white'
 # POWERLEVEL9K_VCS_STAGED_FOREGROUND='white'
@@ -131,5 +131,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gac="git add . & git commit -m $1"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
