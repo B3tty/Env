@@ -31,7 +31,7 @@ VCS_GIT_GITLAB_ICON="🦊"
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
 # Visual customisation of the second prompt line
 # local user_symbol="★"
-local user_symbol="🌵"
+local user_symbol="👩‍💻"
 if [[ $(print -P "%#") =~ "#" ]]; then
     user_symbol = "#"
 fi
