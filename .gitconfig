@@ -83,18 +83,6 @@
 [color "branch"]
 	# Blue on black is hard to read in git branch -vv: use cyan instead
 	upstream = cyan
-[color "diff-highlight"]
-    oldNormal = "red bold"
-    oldHighlight = "red bold 52"
-    newNormal = "green bold"
-    newHighlight = "green bold 22"
-[color "diff"]
-    meta = "yellow"
-    frag = "magenta bold"
-    commit = "yellow bold"
-    old = "red bold"
-    new = "green bold"
-    whitespace = "red reverse"
 [tag]
 	# Sort tags as version numbers whenever applicable, so 1.10.2 is AFTER 1.2.0.
 	sort = version:refname
