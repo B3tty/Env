@@ -17,25 +17,30 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir pyenv virtualenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
-POWERLEVEL9K_TIME_FORMAT="%D{\u23f0 %H:%M:%S}"
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='blue'
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
 POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='black'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
-VCS_GIT_GITHUB_ICON="🐙"
-VCS_GIT_GITLAB_ICON="🦊"
+POWERLEVEL9K_VIRTUALENV_FOREGROUND='022'
+POWERLEVEL9K_VIRTUALENV_BACKGROUND='blue'
+
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON=""
+POWERLEVEL9K_VCS_GIT_GITLAB_ICON="🦊"
+POWERLEVEL9K_PYTHON_ICON="🐍"
+POWERLEVEL9K_TIME_ICON="\u23F0"
 
 # Add a space in the first prompt
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
 # Visual customisation of the second prompt line
 # local user_symbol="★"
-local user_symbol="👩‍💻"
+local user_symbol="🙈"
 if [[ $(print -P "%#") =~ "#" ]]; then
     user_symbol = "#"
 fi
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol %{%b%f%k%F{yellow}%}%{%b%f%k%F{yellow}%} %{%f%}"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{223}%} $user_symbol %{%b%f%k%F{223}%}%{%b%f%k%F{223}%} %{%f%}"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -134,5 +139,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gac="git add . ; git commit -m $1"
+alias mdlint="mdl -g --style mdl.rb ."
+
+activate(){source ~/Projects/venvs/$1/bin/activate;}
+venv_create(){virtualenv ~/Projects/venvs/$1;}
+
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bmoreschini/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bmoreschini/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bmoreschini/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bmoreschini/google-cloud-sdk/completion.zsh.inc'; fi
