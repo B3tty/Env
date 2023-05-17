@@ -1,5 +1,6 @@
 [user]
-	name = Betty
+	name = Betty Moreschini
+	email = betty.moreschini@gmail.com
 [color]
 	# Enable colors in color-supporting terminals
 	ui = auto
