@@ -2,7 +2,15 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/bmoreschini/.oh-my-zsh"
+export ZSH="/Users/bettym/.oh-my-zsh"
+export PATH=/usr/local/bin:$PATH
+export PATH="$HOME/.jenv/bin:$PATH"
+
+export M2_HOME="/Users/bettym/Projects/apache-maven-3.9.0"
+PATH="${M2_HOME}/bin:${PATH}"
+export PATH
+
+eval "$(jenv init -)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -15,17 +23,19 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir pyenv virtualenv vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir pyenv virtualenv java_version node_version vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='blue'
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
 POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='black'
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='hotpink2'
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
 POWERLEVEL9K_VIRTUALENV_FOREGROUND='022'
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='blue'
+POWERLEVEL9K_NODE_VERSION_BACKGROUND='darkseagreen4'
+POWERLEVEL9K_JAVA_VERSION_BACKGROUND='orange1'
 
 POWERLEVEL9K_VCS_GIT_GITHUB_ICON=""
 POWERLEVEL9K_VCS_GIT_GITLAB_ICON="🦊"
@@ -109,6 +119,7 @@ echo -e "\033]6;1;bg;blue;brightness;33\a"
 plugins=(
 	git
 	zsh-autosuggestions
+	jenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -143,12 +154,15 @@ alias mdlint="mdl -g --style mdl.rb ."
 
 activate(){source ~/Projects/venvs/$1/bin/activate;}
 venv_create(){virtualenv ~/Projects/venvs/$1;}
+ged() { gedit "$@" 2>> ~/.xsession-errors & }
 
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/bmoreschini/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bmoreschini/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/bettym/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bettym/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/bmoreschini/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bmoreschini/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/bettym/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bettym/google-cloud-sdk/completion.zsh.inc'; fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
